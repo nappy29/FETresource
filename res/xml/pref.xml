@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory android:title="Notification">
+            <CheckBoxPreference android:title="Allow Notifications" 
+                                android:summary="You will be informed about each class on time"
+                                android:defaultValue="false"
+                                android:key="allow" android:summaryOn="notification turned on" 
+                                android:summaryOff="notification turned off"/>
+        </PreferenceCategory>
+    </PreferenceScreen>

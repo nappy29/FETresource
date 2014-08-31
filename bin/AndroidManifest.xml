@@ -1,0 +1,125 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fetapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="20" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/luanc"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <activity
+         android:name=".Home"
+         android:label="@string/app_name" >
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      
+        <activity
+         android:name=".MainPage"
+         android:label="@string/view" >
+        
+      </activity>
+      
+        <activity
+         android:name=".Ubinfo"
+         android:label="@string/view" >
+         
+      </activity>
+      
+        <activity
+         android:name=".Courses"
+         android:label="@string/view" >
+        
+      </activity>
+      
+        <activity
+         android:name=".CoursePage"
+         android:label="Courses in FET" >
+        
+      </activity>
+      
+        <activity
+         android:name=".TimeTable"
+         android:label="TimeTable" >
+         
+      </activity>
+      
+        <activity
+         android:name=".TimeTablePage"
+         android:label="Time Tables For FET" >
+         
+      </activity>
+      
+        <activity
+         android:name=".UploadToServer"
+         android:label="Uploads" >
+         
+      </activity>
+      
+        <activity
+         android:name=".Pref"
+         android:theme="@android:style/Theme.Light"
+         android:label="Settings" >
+         
+      </activity>
+      
+       <activity
+         android:name=".UpdateTimeTable"
+         android:label="Update timetable" >
+         
+      </activity>
+      
+       <activity
+         android:name=".Gist"
+         android:label="FET INFOs" >
+         
+      </activity>
+      
+       <activity
+         android:name=".QuestionClass"
+         android:label="FET INFOs" >
+         
+      </activity>
+      
+       <activity
+         android:name=".Questions"
+         android:label="FET INFOs" >
+         
+      </activity>
+      
+       <activity
+         android:name=".SingleItem"
+         android:label="FET INFO" >
+         
+      </activity>
+      
+        <activity
+         android:name=".UsefullLink"
+         android:label="Usefull Links" >
+        
+      </activity>
+      
+        <service android:name=".ServiceAlert" >
+           
+        </service>
+        
+        <receiver android:name=".MyReceiver" >
+            
+        </receiver>
+      
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">FETsoft</string>
+    <string name="home">Welcome to the FET app.Please note the folowing</string>
+    <string name="go">Go</string>
+    <string name="gobutton">Go</string>
+    <string name="point1">* This app is solely for FET  UB</string>
+    <string name="point2">* It contains all info and updates partaining to this Faculty</string>
+    <string name="point3">* It contains the course outline for the various departments in FET</string>
+    <string name="point4">* Please click on GO below to continue</string>
+    <string name="view">Welcome Home</string>
+    <string name="info">FET Info  </string>
+    <string name="resource">TimeTables</string>
+    <string name="course">Course Outline</string>
+    <string name="infohead">About FET</string>
+    <string name="infohead1">The faculty of engineering and technology is a newly found faculty in the University of Buea.It was created  2009 with a well structured degree program which runs for 4 years.It was created with the intention of admitting students through a competitve entrance exam from the best are selected but sinve it is still juvenile, admission into this prestigous faculty in done by Study of document where your past A and O level results are studied thouroughly.This Faculty provides Two departments with each having two specialties.</string>
+    <string name="infohead2">We have the department of Computer Engineering and Electrical Engineering.In the Department of Computer Engineering We have Software and Networks Enginerring While in Electrical Engineering we have Telecommunications and Power Engineering.It should be noted that specialisation in this faculty undar either of the departments is only possible in your third year as a student</string>
+    <string name="infohead3">Your third year as a student. </string>
+
+</resources>

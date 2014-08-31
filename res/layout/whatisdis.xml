@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <TextView android:id="@+id/title1"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="FET courses for"
+              android:textSize="14sp"
+              android:typeface="serif"
+              android:textColor="#364B66"
+              android:layout_marginTop="5dp" />
+ 
+     
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+ 
+        <RelativeLayout
+            android:layout_width="150dip"
+            android:layout_height="fill_parent">
+            
+            <TextView
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="First semester"
+              android:textSize="14sp"
+              android:typeface="serif"
+              android:textColor="#364B66"
+              android:layout_marginTop="5dp" />
+ 
+            
+            <ListView android:id="@+id/listcourses1" 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></ListView>
+      
+ 
+            
+        </RelativeLayout>
+ 
+        
+        <RelativeLayout
+            android:layout_below="@+id/lower_linear_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true">
+            
+            <TextView
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="Second semester"
+              android:textSize="14sp"
+              android:typeface="serif"
+              android:textColor="#364B66"
+              android:layout_marginTop="5dp" />
+ 
+            
+ 
+            <ListView android:id="@+id/listcourses2" 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"></ListView>
+ 
+            
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

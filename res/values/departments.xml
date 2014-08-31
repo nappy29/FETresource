@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<string-array name="depArray">
+	<item>Computer Engineering</item>
+	<item>Electrical Engineering</item>
+</string-array>
+
+<string-array name="depvalues">
+    <item>1</item>
+    <item>2</item>
+</string-array>
+
+<string-array name="levArray">
+    <item>200</item>
+    <item>300</item>
+</string-array>
+
+<string-array name="levvalues">
+    <item>1</item>
+    <item> 2</item>
+</string-array>
+
+</resources>

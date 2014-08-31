@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+    
+    <!-- title -->
+    <TextView
+        android:id="@+id/gisttitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:textStyle="italic|bold"
+        android:textColor="#A0522D" />
+ 
+    <!-- Mobile number label -->
+    <TextView
+        android:id="@+id/gistcontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="#364B66"
+        android:textStyle="bold" />
+    
+ <!-- <TextView
+        android:id="@+id/gistat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="#5d5d5d"
+        android:textStyle="bold" />-->   
+    
+    <TextView
+        android:id="@+id/giston"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34sp"
+        android:layout_gravity="right|bottom"
+        android:textColor="#D2B48C"
+        android:textStyle="bold" />
+    
+    
+ </LinearLayout> 

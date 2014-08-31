@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/index"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="2sp"
+        android:contentDescription="Home Screen of UB"
+        android:src="@drawable/school" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00"
+        android:gravity="center"
+        
+        android:typeface="serif"
+        android:textStyle="italic|bold"
+        android:text="You will have to set your time table in a way that suits you.So please be carefull when doing so"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/view1"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>
