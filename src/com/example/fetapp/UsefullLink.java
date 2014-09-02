@@ -20,13 +20,15 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -44,6 +46,17 @@ public class UsefullLink extends Activity {
 		setContentView(R.layout.uselinks);
 		articles = new ArrayList<HashMap<String,String>>();
 		TextView cont = (TextView) findViewById(R.id.usecont);
+		Button feedbak = (Button)findViewById(R.id.feedback);
+		
+		feedbak.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 
+		      btnFeedbackOnClick(v);  
+				
+			}
+		});
 		
 		
 		if(!isConnected()){
@@ -62,6 +75,16 @@ public class UsefullLink extends Activity {
 		// call AsynTask to perform network operation on separate thread
 		new HttpAsyncTask().execute("https://ubresources.com/useful-links.json");
 	}
+
+public void btnFeedbackOnClick(View v) {
+    final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+    _Intent.setType("text/html");
+    _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
+    _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+    _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
+    startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
+}  
+
 
 	public static String GetContent(String url){
 		InputStream inputStream = null;

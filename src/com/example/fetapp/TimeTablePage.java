@@ -73,7 +73,7 @@ public class TimeTablePage extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				startActivity(inten);
+				startActivity(new Intent(TimeTablePage.this, Courses.class));
 			}
 		});
 	}

@@ -28,8 +28,10 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -46,7 +48,18 @@ public class Gist extends Activity {
 		setContentView(R.layout.gist);
 		text = (TextView)findViewById(R.id.gistcontent);
 		articles = new ArrayList<HashMap<String,String>>();
-		list1 = (ListView)   findViewById(R.id.list);
+		list1 = (ListView)findViewById(R.id.list);
+		Button feedbak= (Button) findViewById(R.id.feedbak);
+    feedbak.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 
+		      btnFeedbackOnClick(v);  
+				
+			}
+		});
+		
 		
 		list1.setOnItemClickListener(new OnItemClickListener() {
 			 
@@ -88,6 +101,15 @@ public class Gist extends Activity {
 		// call AsynTask to perform network operation on separate thread
 		new HttpAsyncTask().execute("https://ubresources.com/gist.json");
 	}
+	
+	public void btnFeedbackOnClick(View v) {
+	    final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+	    _Intent.setType("text/html");
+	    _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
+	    _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+	    _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
+	    startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
+	}  
 
 	public static String GetContent(String url){
 		InputStream inputStream = null;
