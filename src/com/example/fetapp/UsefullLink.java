@@ -21,33 +21,86 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender.SendIntentException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UsefullLink extends Activity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.PlusOneButton;
+import com.google.android.gms.plus.PlusShare;
+
+public class UsefullLink extends Activity implements ConnectionCallbacks, OnConnectionFailedListener {
 
 		
 	ArrayList<HashMap<String, String>> articles = null;
 	 ProgressDialog pDialog;
 	 ListView list1;
+	 private PlusOneButton mPlusOneButton;
+	 private static final int RC_SIGN_IN = 0;
+	    private GoogleApiClient mGoogleApiClient;
+		private boolean mIntentInProgress;
+	    private static final int PLUS_ONE_REQUEST_CODE = 0;
+	    private String URL;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.uselinks);
 		articles = new ArrayList<HashMap<String,String>>();
+		mGoogleApiClient = new GoogleApiClient.Builder(this)
+        .addConnectionCallbacks(this)
+        .addOnConnectionFailedListener(this)
+        .addApi(Plus.API)
+        .addScope(Plus.SCOPE_PLUS_LOGIN)
+        .build();
 		TextView cont = (TextView) findViewById(R.id.usecont);
 		Button feedbak = (Button)findViewById(R.id.feedback);
-		
+		URL = "https://play.google.com/store/apps/details?id=com.example.fetapp";
+		ImageButton mShareButton = (ImageButton) findViewById(R.id.share_button1);
+		mPlusOneButton = (PlusOneButton) findViewById(R.id.plus_one_button1);
+        mShareButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			      PlusShare.Builder builder = new PlusShare.Builder(UsefullLink.this);
+
+			      // Set call-to-action metadata.
+			      builder.addCallToAction(
+			          "INVITE", /** call-to-action button label */
+			          Uri.parse("https://plus.google.com/"), 
+			          "/pages/create");
+
+			      // Set the content url (for desktop use).
+			      builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+
+			      // Set the target deep-link ID (for mobile use).
+			      builder.setContentDeepLinkId("/pages/",
+			              null, null, null);
+
+			      // Set the share text.
+			      builder.setText("Create your Google+ Page too!");
+
+			      startActivityForResult(builder.getIntent(), 0);
+			    
+				
+			}
+		});
 		feedbak.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -75,6 +128,7 @@ public class UsefullLink extends Activity {
 		// call AsynTask to perform network operation on separate thread
 		new HttpAsyncTask().execute("https://ubresources.com/useful-links.json");
 	}
+	
 
 public void btnFeedbackOnClick(View v) {
     final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
@@ -209,4 +263,49 @@ public void btnFeedbackOnClick(View v) {
         	
        }
     }
+    
+	protected void onStart() {
+	    super.onStart();
+	    mGoogleApiClient.connect();
+	  }
+
+	  protected void onStop() {
+	    super.onStop();
+
+	    if (mGoogleApiClient.isConnected()) {
+	      mGoogleApiClient.disconnect();
+	    }
+	  }
+	  
+	  protected void onResume() {
+		    super.onResume();
+		    // Refresh the state of the +1 button each time the activity receives focus.
+		    mPlusOneButton.initialize(URL, PLUS_ONE_REQUEST_CODE);
+		}
+    
+    @Override
+	public void onConnectionFailed(ConnectionResult result) {
+		if (!mIntentInProgress && result.hasResolution()) {
+		    try {
+		      mIntentInProgress = true;
+		      startIntentSenderForResult(result.getResolution().getIntentSender(),
+		          RC_SIGN_IN, null, 0, 0, 0);
+		    } catch (SendIntentException e) {
+		      
+		      mIntentInProgress = false;
+		      mGoogleApiClient.connect();
+		    }
+		  }
+		
+	}
+
+	@Override
+	public void onConnected(Bundle connectionHint) {
+      		
+	}
+
+	@Override
+	public void onConnectionSuspended(int cause) {
+		 mGoogleApiClient.connect();		
+	}
 }

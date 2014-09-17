@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<ScrollView 
     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+<TableLayout
+    
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/timet"
     android:background="@drawable/index"
     android:shrinkColumns="*"
     android:stretchColumns="*">
@@ -18,7 +24,7 @@
             android:textStyle="bold"
             android:typeface="serif"
             android:textSize="18dp"
-            android:text="TimeTable for "
+            android:text="Your Personal TimeTable"
             android:gravity="center"
             android:layout_span="6"></TextView>
     </TableRow>
@@ -61,6 +67,7 @@
             android:textSize="9dp"
             android:typeface="serif"></TextView>
     </TableRow>
+    <!-- 
     <TableRow
         android:layout_height="wrap_content"
         android:background="@drawable/border"
@@ -301,7 +308,7 @@
             android:textSize="9dp"
             android:gravity="center_horizontal"></TextView>
     </TableRow>
-    
+     -->
     
 
 <LinearLayout 
@@ -325,3 +332,4 @@
 </LinearLayout>
 
 </TableLayout>
+</ScrollView>

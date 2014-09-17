@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/index"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6FB3E8" >
     
     <ImageView
         android:id="@+id/icon"
@@ -18,7 +17,7 @@
 
     <LinearLayout
         android:layout_width="334dp"
-        android:layout_height="fill_parent"
+        android:layout_height="328dp"
         android:background="#6FB3E8"
         android:orientation="vertical" >
     
@@ -83,6 +82,30 @@
         android:textSize="25sp" />
     </LinearLayout>
     </ScrollView>
+       
 
-        
-</LinearLayout>    
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#00aaDB"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="44.78"
+            android:autoLink="web"
+            android:dividerHeight="5sp"
+            android:linksClickable="true"
+            android:text="This sectionmay not satisfy  you directly but be rest assured that updation on this app is currently going on and you can follow us on our official website ubresources.com for more details"
+            android:textColor="#900DFF"
+            android:textColorLink="#8B4513"
+            android:textSize="13sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+  </RelativeLayout>      
+    

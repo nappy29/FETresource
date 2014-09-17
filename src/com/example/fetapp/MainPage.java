@@ -2,6 +2,7 @@ package com.example.fetapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.CursorJoiner.Result;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +24,16 @@ public class MainPage extends Activity{
 		Button course = (Button) findViewById(R.id.courses);
 		Button files = (Button) findViewById(R.id.files);
 		Button past  = (Button) findViewById(R.id.pastquest);
+		Button result = (Button)findViewById(R.id.results);
+		
+		result.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainPage.this, Results.class));
+				
+			}
+		});
 		
 		past.setOnClickListener(new OnClickListener() {
 			

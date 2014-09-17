@@ -19,15 +19,12 @@ public class QuestionClass extends Activity implements OnItemSelectedListener{
 	private String[] level ={"200", "300"};
 	String url;
 	private ArrayAdapter<String> adapter1;
-	private Intent inten;
-	
+	private Intent inten;	
 	@Override
 	public void onCreate(Bundle savedInstaceState){
 		super.onCreate(savedInstaceState);
 		
 		setContentView(R.layout.question);
-		
-		
 		
 		spinner1= (Spinner) findViewById(R.id.numba1);
 		adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,department);
@@ -41,6 +38,17 @@ public class QuestionClass extends Activity implements OnItemSelectedListener{
 		spinner11.setAdapter(adapter2);
 		spinner11.setOnItemSelectedListener(this);
 		Button next = (Button) findViewById(R.id.next);
+		Button feed = (Button) findViewById(R.id.feedbakk);
+		
+        feed.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 
+		      btnFeedbackOnClick(v);  
+				
+			}
+		});
 		inten = new Intent(QuestionClass.this, Questions.class);
 		
 		next.setOnClickListener(new OnClickListener() {
@@ -53,7 +61,14 @@ public class QuestionClass extends Activity implements OnItemSelectedListener{
 		});
 	}
 	
-	
+	public void btnFeedbackOnClick(View v) {
+	    final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+	    _Intent.setType("text/html");
+	    _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
+	    _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+	    _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
+	    startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
+	} 
 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,

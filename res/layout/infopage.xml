@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/index"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8CA7E"
     android:orientation="vertical" >   
     
     <ImageView
         android:id="@+id/icon"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:layout_marginTop="2sp"
+        android:padding="2dp"
         android:contentDescription="Home Screen of UB"
         android:src="@drawable/school" />
     
  <ScrollView 
         android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:fillViewport="true"
         android:layout_height="wrap_content" >
-<LinearLayout 
+
+<LinearLayout
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/index"
-    android:orientation="vertical" >   
+    android:layout_height="match_parent"
+    android:background="#07E59D"
+    android:orientation="vertical"
+    android:padding="10px" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/infohead"
+        android:textColor="#E8CA7E"
+        android:textStyle="bold|italic"
         android:textSize="20sp" />
 
     <TextView
@@ -37,8 +42,9 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
+        android:typeface="sans"
         android:text="@string/infohead1"
-        android:textColor="@android:color/primary_text_light" />
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -49,18 +55,112 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="431.19"
         android:text="@string/infohead2"
-        android:textColor="@android:color/primary_text_light" />
+        android:textStyle="italic"
+        android:typeface="sans"/>
+    
+    <TableLayout
+    
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="28dp"
+    android:background="#E8CA7E"
+    android:shrinkColumns="*"
+    android:stretchColumns="*">
+    
+         <TableRow
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/tabtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            android:textSize="15dp"
+            android:text="Departments and Specialties in FET"
+            android:gravity="center"
+            android:layout_span="3"></TextView>
+    </TableRow>
+    
+         <TableRow
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+        <TextView
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:text="Deparment"></TextView>
+        <TextView
+            android:text="Specialty"
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:text="Duration"
+            android:textStyle="bold"
+            android:textSize="9dp"
+            android:typeface="serif"></TextView>
+        </TableRow>
+        
+         <TableRow
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+        <TextView
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:text="Computer Engineering"></TextView>
+        <TextView
+            android:text="Software and Netorks Engineering"
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:text="4 years"
+            android:textStyle="bold"
+            android:textSize="9dp"
+            android:typeface="serif"></TextView>
+        </TableRow>
+        
+         <TableRow
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
+        <TextView
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:text="Electrical Engineering"></TextView>
+        <TextView
+            android:text="Telecommunication and Power Engineering"
+            android:textSize="9dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:text="4 years"
+            android:textStyle="bold"
+            android:textSize="9dp"
+            android:typeface="serif"></TextView>
+        </TableRow>
+        
+ </TableLayout>       
     
      <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="431.19"
         android:text="@string/infohead3"
-        android:textColor="@android:color/primary_text_light" />
+        android:textStyle="italic"
+        android:typeface="monospace"
+        android:textColor="#ffffff"/>
     
        
   </LinearLayout>

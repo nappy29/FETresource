@@ -21,8 +21,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender.SendIntentException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -32,16 +34,32 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class Gist extends Activity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.PlusOneButton;
+import com.google.android.gms.plus.PlusShare;
+
+public class Gist extends Activity implements ConnectionCallbacks, OnConnectionFailedListener {
 	
 	ArrayList<HashMap<String, String>> articles = null;
 	 ProgressDialog pDialog;
 	private ListView list1;
 	TextView text;
+	private static final int RC_SIGN_IN = 0;
+    private GoogleApiClient mGoogleApiClient;
+	private boolean mIntentInProgress;
+    private PlusOneButton mPlusOneButton;
+	private String URL;
+    private static final int PLUS_ONE_REQUEST_CODE = 0;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,6 +68,46 @@ public class Gist extends Activity {
 		articles = new ArrayList<HashMap<String,String>>();
 		list1 = (ListView)findViewById(R.id.list);
 		Button feedbak= (Button) findViewById(R.id.feedbak);
+		mPlusOneButton = (PlusOneButton) findViewById(R.id.plus_one_button);
+		URL = "https://play.google.com/store/apps/details?id=com.example.fetapp";
+		ImageButton mShareButton = (ImageButton) findViewById(R.id.share_button);
+		mShareButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			      PlusShare.Builder builder = new PlusShare.Builder(Gist.this);
+
+			      // Set call-to-action metadata.
+			      builder.addCallToAction(
+			          "INVITE", /** call-to-action button label */
+			          Uri.parse("https://plus.google.com/"), 
+			          "/pages/create");
+
+			      // Set the content url (for desktop use).
+			      builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+
+			      // Set the target deep-link ID (for mobile use).
+			      builder.setContentDeepLinkId("/pages/",
+			              null, null, null);
+
+			      // Set the share text.
+			      builder.setText("Create your Google+ Page too!");
+
+			      startActivityForResult(builder.getIntent(), 0);
+			    
+				
+			}
+		});
+		
+		mGoogleApiClient = new GoogleApiClient.Builder(this)
+        .addConnectionCallbacks(this)
+        .addOnConnectionFailedListener(this)
+        .addApi(Plus.API)
+        .addScope(Plus.SCOPE_PLUS_LOGIN)
+        .build();
+
+		
     feedbak.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -78,7 +136,7 @@ public class Gist extends Activity {
                         SingleItem.class);
                 in.putExtra("title", title);
                 in.putExtra("content", content);
-                in.putExtra("updated_at", description);
+               // in.putExtra("updated_at", description);
                 startActivity(in);
 			}
         });
@@ -101,6 +159,27 @@ public class Gist extends Activity {
 		// call AsynTask to perform network operation on separate thread
 		new HttpAsyncTask().execute("https://ubresources.com/gist.json");
 	}
+	
+	protected void onStart() {
+	    super.onStart();
+	    mGoogleApiClient.connect();
+	  }
+
+	  protected void onStop() {
+	    super.onStop();
+
+	    if (mGoogleApiClient.isConnected()) {
+	      mGoogleApiClient.disconnect();
+	    }
+	  }
+	  
+	  protected void onResume() {
+		    super.onResume();
+		    // Refresh the state of the +1 button each time the activity receives focus.
+		    mPlusOneButton.initialize(URL, PLUS_ONE_REQUEST_CODE);
+		}
+
+
 	
 	public void btnFeedbackOnClick(View v) {
 	    final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
@@ -237,4 +316,29 @@ public class Gist extends Activity {
         	
        }
     }
+	@Override
+	public void onConnectionFailed(ConnectionResult result) {
+		if (!mIntentInProgress && result.hasResolution()) {
+		    try {
+		      mIntentInProgress = true;
+		      startIntentSenderForResult(result.getResolution().getIntentSender(),
+		          RC_SIGN_IN, null, 0, 0, 0);
+		    } catch (SendIntentException e) {
+		      
+		      mIntentInProgress = false;
+		      mGoogleApiClient.connect();
+		    }
+		  }
+		
+	}
+
+	@Override
+	public void onConnected(Bundle connectionHint) {
+      		
+	}
+
+	@Override
+	public void onConnectionSuspended(int cause) {
+		 mGoogleApiClient.connect();		
+	}
 }

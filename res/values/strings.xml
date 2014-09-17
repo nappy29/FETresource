@@ -13,16 +13,15 @@
     <string name="resource">TimeTables</string>
     <string name="course">Course Outline</string>
     <string name="infohead">About FET</string>
-    <string name="infohead1">The faculty of engineering and technology is a newly found faculty in the University of Buea.It was created  2009 with a well structured degree program which runs for 4 years.It was created with the intention of admitting students through a competitve entrance exam from the best are selected but sinve it is still juvenile, admission into this prestigous faculty in done by Study of document where your past A and O level results are studied thouroughly.This Faculty provides Two departments with each having two specialties.</string>
-    <string name="infohead2">We have the department of Computer Engineering and Electrical Engineering.In the Department of Computer Engineering We have Software and Networks Enginerring While in Electrical Engineering we have Telecommunications and Power Engineering.It should be noted that specialisation in this faculty undar either of the departments is only possible in your third year as a student</string>
-    <string name="infohead3">Your third year as a student. </string>
+    <string name="infohead1">The faculty of engineering and technology is a newly found faculty in the University of Buea.It was created  2009 with a well structured degree program which runs for 4 years.It was created with the intention of admitting students through a competitve entrance exam from which the best are selected.Admission into this prestigous faculty in done by Study of document where your past A and O level results are studied thouroughly.</string>
+    <string name="infohead2">We have the department of Computer Engineering and Electrical Engineering.In the Department of Computer Engineering We have Software and Networks Enginerring While in Electrical Engineering we have Telecommunications and Power Engineering.</string>
+    <string name="infohead3">It should be noted that specialisation in this faculty under either of the departments is only possible in your third year as a student</string>
     
     <string name="button_feedback">Send feedback</string>       
     <string name="title_send_feedback">Send feedback</string>
  
     <string name="mail_feedback_email">ewaneenombe@gmail.com</string>
     <string name="mail_feedback_subject">Feed back on Fetsoft App</string>
-    <string name="mail_feedback_message">Hi,
-\n\nYour Feedback sample app rocks! I would like to give you some feedback:</string>
+    <string name="mail_feedback_message">Type your feedback here: </string>
 
 </resources>

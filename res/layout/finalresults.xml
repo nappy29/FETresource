@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1BA83C" >
+
+    <WebView
+        android:id="@+id/webimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/usern"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginRight="71dp"
+        android:background="@drawable/corner" />
+
+            <TextView
+                android:id="@+id/leve"
+                style="@color/wallet_highlighted_text_holo_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/em"
+                android:layout_centerVertical="true"
+                android:text="Level: "
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/usern"
+                style="@color/wallet_highlighted_text_holo_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/email"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:text="Name: "
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/email"
+                style="@color/wallet_highlighted_text_holo_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/leve"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:text="Email: "
+                android:textStyle="italic"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+            
+            <View 
+             android:id="@+id/vi"                                        
+             android:layout_width="fill_parent"
+             android:layout_height="2dp"
+             android:background="#C0C0C0"/>
+
+            <LinearLayout
+                android:id="@+id/bottom_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#1FBF15"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:clickable="true"
+                    android:dividerHeight="5sp"
+                    android:onClick="logout"
+                    android:layout_marginRight="31dp"
+                    android:text="Logout"
+                    android:textColor="#D8Bafd"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+              
+    </LinearLayout>
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottom_panel"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/leve"
+                android:id="@+id/scroll4results"
+                android:background="#8FB70C" >
+
+                <LinearLayout
+                    android:id="@+id/linre"
+                    android:layout_width="222dp"
+                    android:layout_height="83dp"
+                    android:layout_marginLeft="72dp"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </ScrollView>
+    
+ </RelativeLayout>   

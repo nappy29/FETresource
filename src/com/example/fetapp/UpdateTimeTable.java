@@ -163,12 +163,12 @@ public class UpdateTimeTable extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				insert.droptable();
+				//insert.droptable();
 				runOnUiThread(new Runnable() {
 	        	     @Override
 	        	     public void run() {
                        new justGo().execute();
-	     				mytable();
+	     				//mytable();
 
 	        	    }
 	        	});

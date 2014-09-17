@@ -1,47 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-      
-     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Information about FET staff and students"
-        android:gravity="center"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:dividerHeight="5sp"
-        android:textStyle="bold" />
-    
-    <ListView android:id="@+id/list"
-              android:divider="@android:color/white"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"></ListView>
-    <LinearLayout 
-        android:id="@+id/bottom_panel"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#00FFDB"
-        android:layout_alignParentBottom="true">
-    
-         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You can help send your feed back by clicking here to tell us what you think of this App."
-        android:layout_gravity="center"
-        android:textSize="13sp"
-        android:textColor="#900DFF"
-        android:dividerHeight="5sp"
-        android:textStyle="bold|italic" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black" >
 
-         <Button
-             android:id="@+id/feedbak"
-             android:layout_width="62dp"
-             android:layout_height="32sp"
-             android:layout_gravity="center"
-             android:background="@drawable/feed" />
-    
-    </LinearLayout> 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lin"
+        android:background="@android:color/black" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="97dp"
+            android:background="#ffffff"
+            android:dividerHeight="5sp"
+            android:gravity="center"
+            android:text="Information about FET staff and students"
+            android:textColor="#E8530C"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
         
- </RelativeLayout>  
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin"
+        android:layout_above="@+id/bottom_panel"
+        android:divider="@android:color/white" >
+    </ListView>
+    
+      
+
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="22sp"
+        android:background="#232323"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:dividerHeight="5sp"
+            android:text="You can help send your feed back by clicking here to tell us what you think of this App."
+            android:textColor="#010101"
+            android:textSize="13sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/feedbak"
+            android:layout_width="62dp"
+            android:layout_height="32sp"
+            android:layout_gravity="center"
+            android:background="@drawable/feed" />
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="22sp"
+        android:background="#232323"
+        android:orientation="horizontal" >   
+        
+        <ImageButton 
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share interactive post on Google+"
+            android:src="@drawable/ic_plusone_medium_off_client"
+            android:enabled="false" />
+        
+        <com.google.android.gms.plus.PlusOneButton
+            xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
+            android:id="@+id/plus_one_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:background="@drawable/common_signin_btn_text_dark"
+            plus:annotation="inline"
+            plus:size="standard" />  
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -142,8 +142,8 @@ public class DbControl {
 		
 	}
 	public void droptable(){
-//		ourDatabase.execSQL("DROP TABLE IF EXISTS " + Table);
-//		ourHelper.onCreate(ourDatabase);
+		ourDatabase.execSQL("DROP TABLE IF EXISTS " + Table);
+		ourHelper.onCreate(ourDatabase);
 	}
 	
 	public DbControl(Context c){
