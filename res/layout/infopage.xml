@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8CA7E"
+    android:background="#80B1E8"
     android:orientation="vertical" >   
     
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="110dp"
         android:padding="2dp"
         android:contentDescription="Home Screen of UB"
@@ -33,6 +33,7 @@
         android:text="@string/infohead"
         android:textColor="#E8CA7E"
         android:textStyle="bold|italic"
+        android:typeface="serif"
         android:textSize="20sp" />
 
     <TextView
@@ -42,8 +43,9 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:typeface="sans"
+        android:typeface="serif"
         android:text="@string/infohead1"
+        android:layout_gravity="center_vertical|right"
         android:textStyle="italic" />
 
     <TextView
@@ -55,8 +57,9 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="431.19"
         android:text="@string/infohead2"
+        android:layout_gravity="center_vertical|right"
         android:textStyle="italic"
-        android:typeface="sans"/>
+        android:typeface="serif"/>
     
     <TableLayout
     
@@ -159,7 +162,8 @@
         android:layout_weight="431.19"
         android:text="@string/infohead3"
         android:textStyle="italic"
-        android:typeface="monospace"
+        android:layout_gravity="center_vertical|right"
+        android:typeface="serif"
         android:textColor="#ffffff"/>
     
        

@@ -53,6 +53,13 @@ public class TimeTablePage extends Activity{
 		mytable();
 	}
 	
+	@Override
+	public void onBackPressed()
+	{
+	    startActivity(new Intent(getApplicationContext(), MainPage.class));
+	    finish();
+	}
+	
 	public void mytable(){
 		TableLayout tablelayout;
        Log.d("Work beginning", "THE main thread here");

@@ -15,6 +15,23 @@
               android:typeface="serif"
               android:textStyle="italic|bold"
               android:textColor="#D8BFD8"/>
+     <ImageButton 
+            android:id="@+id/share_button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share interactive post on Google+"
+            android:src="@drawable/ic_plusone_medium_off_client"
+            android:enabled="false" />
+    
+     <com.google.android.gms.plus.PlusOneButton
+            xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
+            android:id="@+id/plus_one_button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:background="@drawable/common_signin_btn_text_dark"
+            plus:annotation="inline"
+            plus:size="standard" />  
     <ScrollView 
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
@@ -28,5 +45,4 @@
               android:textStyle="bold"
               android:textColor="#364B66"/>
     </ScrollView>
-    
  </LinearLayout>   

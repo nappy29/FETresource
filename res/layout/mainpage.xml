@@ -15,7 +15,7 @@
     
 <ScrollView 
         android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 <LinearLayout 
     android:layout_width="fill_parent"
@@ -28,64 +28,71 @@
     <Button
         android:id="@+id/info"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="@string/info"
          />
     
     <Button
         android:id="@+id/gist"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="Gist"
          />
     <Button
         android:id="@+id/resource"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="@string/resource"/>
     <Button
         android:id="@+id/courses"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="@string/course"/>
     
     <Button
         android:id="@+id/pastquest"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="Past Questions"/>
     
     <Button
         android:id="@+id/files"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="Usefull Links"/>
     
      <Button
         android:id="@+id/results"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
         android:text="View results"/>
     
 

@@ -85,14 +85,14 @@ public class Gist extends Activity implements ConnectionCallbacks, OnConnectionF
 			          "/pages/create");
 
 			      // Set the content url (for desktop use).
-			      builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+			      builder.setContentUrl(Uri.parse("https://plus.google.com/s/Fetsoft"));
 
 			      // Set the target deep-link ID (for mobile use).
 			      builder.setContentDeepLinkId("/pages/",
 			              null, null, null);
 
 			      // Set the share text.
-			      builder.setText("Create your Google+ Page too!");
+			      builder.setText("Post to Fetsoft! ");
 
 			      startActivityForResult(builder.getIntent(), 0);
 			    

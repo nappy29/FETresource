@@ -67,53 +67,9 @@ public class UpdateTimeTable extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.updatetimetable);
-	
-		//helper = new Helper(UpdateTimeTable.this);	
+		
 		insert = new DbControl(this);
-		//helper.open();
-	/*	text = new TextView[6][6];
-		text[0][0] = (TextView) findViewById(R.id.row1col1);
-		text[0][1] = (TextView) findViewById(R.id.row1col2);
-		text[0][2] = (TextView) findViewById(R.id.row1col3);
-		text[0][3] = (TextView) findViewById(R.id.row1col4);
-		text[0][4] = (TextView) findViewById(R.id.row1col5);
-		text[0][5] = (TextView) findViewById(R.id.row1col6);
-		
-		text[1][0] = (TextView) findViewById(R.id.row2col1);
-		text[1][1] = (TextView) findViewById(R.id.row2col2);
-		text[1][2] = (TextView) findViewById(R.id.row2col3);
-		text[1][3] = (TextView) findViewById(R.id.row2col4);
-		text[1][4] = (TextView) findViewById(R.id.row2col5);
-		text[1][5] = (TextView) findViewById(R.id.row2col6);
-		
-		text[2][0] = (TextView) findViewById(R.id.row3col1);
-		text[2][1] = (TextView) findViewById(R.id.row3col2);
-		text[2][2] = (TextView) findViewById(R.id.row3col3);
-		text[2][3] = (TextView) findViewById(R.id.row3col4);
-		text[2][4] = (TextView) findViewById(R.id.row3col5);
-		text[2][5] = (TextView) findViewById(R.id.row3col6);
-		
-		text[3][0] = (TextView) findViewById(R.id.row4col1);
-		text[3][1] = (TextView) findViewById(R.id.row4col2);
-		text[3][2] = (TextView) findViewById(R.id.row4col3);
-		text[3][3] = (TextView) findViewById(R.id.row4col4);
-		text[3][4] = (TextView) findViewById(R.id.row4col5);
-		text[3][5] = (TextView) findViewById(R.id.row4col6);
-		
-		text[4][0] = (TextView) findViewById(R.id.row5col1);
-		text[4][1] = (TextView) findViewById(R.id.row5col2);
-		text[4][2] = (TextView) findViewById(R.id.row5col3);
-		text[4][3] = (TextView) findViewById(R.id.row5col4);
-		text[4][4] = (TextView) findViewById(R.id.row5col5);
-		text[4][5] = (TextView) findViewById(R.id.row5col6);
-		
-		text[5][0] = (TextView) findViewById(R.id.row6col1);
-		text[5][1] = (TextView) findViewById(R.id.row6col2);
-		text[5][2] = (TextView) findViewById(R.id.row6col3);
-		text[5][3] = (TextView) findViewById(R.id.row6col4);
-		text[5][4] = (TextView) findViewById(R.id.row6col5);
-		text[5][5] = (TextView) findViewById(R.id.row6col6);     */
-		
+	
 		edit1 = (EditText)findViewById(R.id.edit1Text1);
 		edit2 = (EditText)findViewById(R.id.edit1Text2);
 		edit3 = (EditText)findViewById(R.id.edit1Text3);
@@ -167,6 +123,7 @@ public class UpdateTimeTable extends Activity{
 				runOnUiThread(new Runnable() {
 	        	     @Override
 	        	     public void run() {
+	        	    	 insert.deletetable();
                        new justGo().execute();
 	     				//mytable();
 

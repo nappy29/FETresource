@@ -3,27 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6FB3E8" >
-    
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginTop="1sp"
-        android:contentDescription="Home Screen of UB"
-        android:src="@drawable/school" />
-    <ScrollView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_panel" >
 
     <LinearLayout
         android:layout_width="334dp"
-        android:layout_height="328dp"
+        android:layout_height="wrap_content"
         android:background="#6FB3E8"
         android:orientation="vertical" >
     
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:text="Select your Details"
+              android:text="Select your Courses"
               android:gravity="center_horizontal"
               android:textSize="16sp"
               android:layout_marginTop="10dp" 
@@ -100,11 +94,18 @@
             android:autoLink="web"
             android:dividerHeight="5sp"
             android:linksClickable="true"
-            android:text="This sectionmay not satisfy  you directly but be rest assured that updation on this app is currently going on and you can follow us on our official website ubresources.com for more details"
+            android:text="If You are not satisfied you can send feed back here"
             android:textColor="#900DFF"
             android:textColorLink="#8B4513"
             android:textSize="13sp"
             android:textStyle="bold|italic" />
+        
+         <Button
+            android:id="@+id/feedbakc"
+            android:layout_width="62dp"
+            android:layout_height="32sp"
+            android:layout_gravity="center"
+            android:background="@drawable/feed" />
     </LinearLayout>
 
   </RelativeLayout>      

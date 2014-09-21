@@ -72,19 +72,21 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="200dp"
+                    android:layout_weight="0.08"
                     android:clickable="true"
                     android:dividerHeight="5sp"
+                    android:gravity="center_horizontal"
                     android:onClick="logout"
-                    android:layout_marginRight="31dp"
                     android:text="Logout"
                     android:textColor="#D8Bafd"
                     android:textSize="18sp"
                     android:textStyle="bold|italic" />
-              
-    </LinearLayout>
+
+            </LinearLayout>
 
             <ScrollView
                 android:layout_width="wrap_content"

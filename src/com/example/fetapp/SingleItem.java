@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class SingleItem extends Activity{
+public class SingleItem extends Activity implements ConnectionCallbacks, OnConnectionFailedListener{
 	private String URL;
 	private PlusOneButton mPlusOneButton;
 	private boolean mIntentInProgress;
@@ -31,10 +31,10 @@ public class SingleItem extends Activity{
     public void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);    	
     	setContentView(R.layout.singleitem);
-//		mPlusOneButton = (PlusOneButton) findViewById(R.id.plus_one_button11);
-//		URL = "https://play.google.com/store/apps/details?id=com.example.fetapp";
-//		ImageButton mShareButton = (ImageButton) findViewById(R.id.share_button);
-//		Button feedbak= (Button) findViewById(R.id.feedbak);        
+		mPlusOneButton = (PlusOneButton) findViewById(R.id.plus_one_button11);
+		URL = "https://play.google.com/store/apps/details?id=com.example.fetapp";
+		ImageButton mShareButton = (ImageButton) findViewById(R.id.share_button11);
+		Button feedbak= (Button) findViewById(R.id.feedbak);        
     	Intent in = getIntent();
     	
 		String var1=in.getStringExtra("title");
@@ -46,15 +46,73 @@ public class SingleItem extends Activity{
 		tit.setText(var1);
 		con.setText(var2);
 		
-//		mGoogleApiClient = new GoogleApiClient.Builder(this)
-//        .addConnectionCallbacks(this)
-//        .addOnConnectionFailedListener(this)
-//        .addApi(Plus.API)
-//        .addScope(Plus.SCOPE_PLUS_LOGIN)
-//        .build();
+	mGoogleApiClient = new GoogleApiClient.Builder(this)
+        .addConnectionCallbacks(this)
+        .addOnConnectionFailedListener(this)
+        .addApi(Plus.API)
+        .addScope(Plus.SCOPE_PLUS_LOGIN)
+        .build();
+	
+	mShareButton.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			
+		      PlusShare.Builder builder = new PlusShare.Builder(SingleItem.this);
+
+		      // Set call-to-action metadata.
+		      builder.addCallToAction(
+		          "INVITE", /** call-to-action button label */
+		          Uri.parse("https://plus.google.com/"), 
+		          "/pages/create");
+
+		      // Set the content url (for desktop use).
+		      builder.setContentUrl(Uri.parse("https://plus.google.com/s/Fetsoft"));
+
+		      // Set the target deep-link ID (for mobile use).
+		      builder.setContentDeepLinkId("/pages/",
+		              null, null, null);
+
+		      // Set the share text.
+		      builder.setText("Post to Fetsoft! ");
+
+		      startActivityForResult(builder.getIntent(), 0);
+		    
+			
+		}
+	});
+	  
+	Intent shareIntent = new PlusShare.Builder(this)
+    .setText("Check out: http://example.com/cheesecake/lemon")
+    .setType("text/plain")
+    .setContentUrl(Uri.parse("http://example.com/cheesecake/lemon"))
+    .setContentDeepLinkId(PlusShare.getDeepLinkId(this.getIntent()), var1,var2,Uri.parse("https://ubresources.com/gist/" + var1))
+    .getIntent();
+
+          startActivityForResult(shareIntent, 0);
+          
+//          
+//          String deepLinkId = PlusShare.getDeepLinkId(this.getIntent());
+//          Intent target = parseDeepLinkId(deepLinkId);
+//          if (target != null) {
+//            startActivity(target);
+//          }
+
     }
     
-    /*
+    
+    private Intent parseDeepLinkId(String deepLinkId) {
+        Intent route = new Intent();
+        if ("/pages/create".equals(deepLinkId)) {
+            route.setClass(getApplicationContext(), MainPage.class);
+        } else {
+            // Fallback to the MainActivity in your app.
+            route.setClass(getApplicationContext(), MainPage.class);
+        }
+        return route;
+    }
+
+   
     
     protected void onStart() {
 	    super.onStart();
@@ -108,5 +166,5 @@ public class SingleItem extends Activity{
 	@Override
 	public void onConnectionSuspended(int cause) {
 		 mGoogleApiClient.connect();		
-	}  */
+	}  
 }

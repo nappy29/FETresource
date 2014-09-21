@@ -99,15 +99,6 @@ public class DbControl {
 	public static final String Time15 = "fifth";
 	public static final String Time17 = "sixth";
 	
-//	public static final String DATABASE_TABLE = "timetable";
-//	public static final String KEY_ID = "_id";
-//	public static final String KEY_SCHOOL = "school";
-//	public static final String KEY_LEVEL = "level";
-//	public static final String KEY_DAY = "day";
-//	public static final String KEY_COURSE = "course";
-//	
-//	private static final String DATABASE_NAME = "timetableDB";
-//	private static final int DATABASE_VERSION = 1;
 	
 	public final String sql = "   create table " + DbControl.Table + " (" + DbControl.ClassId 
 	          + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -145,7 +136,9 @@ public class DbControl {
 		ourDatabase.execSQL("DROP TABLE IF EXISTS " + Table);
 		ourHelper.onCreate(ourDatabase);
 	}
-	
+	public void deletetable(){
+		ourDatabase.delete("course", null, null);
+	}
 	public DbControl(Context c){
 		ourContext = c;
 	}

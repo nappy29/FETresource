@@ -64,6 +64,8 @@ public class ShowResults extends Activity {
 			}).show();
 		}
 	    
+	    //do this if connection are available
+	    if(isConnected()){
 		new Result().execute(results);
 	    pic.loadUrl(URL);
 		if(extra != null){
@@ -71,9 +73,15 @@ public class ShowResults extends Activity {
 		mail.append(email);
 		leve.append(level);
 		}
-		
+	   }	
 	}
 	
+	   @Override
+		public void onBackPressed()
+		{
+//		   when back button pressed do nothing
+		}
+	// verify if there is connection
 	public boolean isConnected(){
     	ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
     	    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -125,10 +133,10 @@ public class ShowResults extends Activity {
 						valueTV.setText("There are No Results Currently, Please check again Later");
 						valueTV.setId(5);
 						rela.removeView(scroll4results);
-						rela.addView(valueTV,lp);
+						rela.addView(valueTV,lp);    //add textview to layout
 						
 					}
-					if(arra.length()!=0){
+					if(arra.length()!=0){  //verify if there are results
 						for(int i = 0; i<arra.length(); i++){
 														
 							TextView valueTV = new TextView(ShowResults.this);

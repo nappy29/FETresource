@@ -87,7 +87,7 @@ public class UsefullLink extends Activity implements ConnectionCallbacks, OnConn
 			          "/pages/create");
 
 			      // Set the content url (for desktop use).
-			      builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+			      builder.setContentUrl(Uri.parse("https://plus.google.com/s/Fetsoft"));
 
 			      // Set the target deep-link ID (for mobile use).
 			      builder.setContentDeepLinkId("/pages/",

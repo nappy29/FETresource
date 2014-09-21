@@ -56,6 +56,13 @@ public class Results extends Activity {
 		}
 	});
    }
+   
+   @Override
+	public void onBackPressed()
+	{
+	    startActivity(new Intent(getApplicationContext(), MainPage.class));
+	    finish();
+	}
      
    public class Login extends AsyncTask<Void, Void, Void>{
 	   

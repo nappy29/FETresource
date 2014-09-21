@@ -51,6 +51,17 @@ public class Questions extends Activity implements OnItemSelectedListener{
 		Button down1 = (Button) findViewById(R.id.down1);
 		Button down2 = (Button) findViewById(R.id.down2);
 		inten = new Intent(Questions.this, CoursePage.class);
+Button feed = (Button) findViewById(R.id.feedbakc);
+		
+        feed.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 
+		      btnFeedbackOnClick(v);  
+				
+			}
+		});
 		
 	/*	Bundle extra = getIntent().getExtras();
 		String var1=extra.getString("spinner1");
@@ -127,6 +138,14 @@ public class Questions extends Activity implements OnItemSelectedListener{
 				
 			}
 		});
+	}
+	public void btnFeedbackOnClick(View v) {
+	    final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+	    _Intent.setType("text/html");
+	    _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
+	    _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+	    _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
+	    startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
 	}
 	
 	public void download(String url){
